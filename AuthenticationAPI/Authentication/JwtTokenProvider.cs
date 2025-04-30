@@ -16,7 +16,7 @@ public class JwtTokenProvider(IConfiguration configuration) : IJwtTokenProvider
         List<Claim> claims =
         [
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new(JwtRegisteredClaimNames.Sub, user.UserName.ToString())
+            new(JwtRegisteredClaimNames.Sub, user.UserName)
         ];
 
         // Add roles and permissions claims

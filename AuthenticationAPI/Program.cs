@@ -54,9 +54,11 @@ builder.Services.AddAuthentication(options =>
                 var tokenIssuer = jwtHandler.ReadJwtToken(token).Issuer;
 
                 if (tokenIssuer == builder.Configuration["Jwt:Issuer"])
+                {
                     return "Local_JWT_Scheme";
-                else
-                    return "AzureAD_Scheme";
+                }
+                
+                return "AzureAD_Scheme";
             }
 
             return "CustomToken";
